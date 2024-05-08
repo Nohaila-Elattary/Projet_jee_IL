@@ -4,6 +4,7 @@ package gestionprojet.MVCLogin;
 import gestionprojet.MVCRegister.*;
 import javax.swing.JOptionPane;
 import com.raven.form.Form_Home;
+import com.raven.main.Main2;
 
 
 public class LoginController {
@@ -18,7 +19,7 @@ public class LoginController {
         this.loginVue = loginVue;
         this.loginVue.setController(this); // Mettre à jour la référence du contrôleur dans la vue
     }
-
+ 
     public void authenticateUser() {
         String email = loginVue.getEmail();
         String password = loginVue.getPassword();
@@ -31,11 +32,13 @@ public class LoginController {
             boolean utilisateurValide = utilisateurDAO.verifierUtilisateur(email, password);
             if (utilisateurValide) {
                 // Redirection vers la vue suivante
-                 Form_Home HomeFrame = new Form_Home();
+                 Main2 HomeFrame = new Main2();
                  HomeFrame.setVisible(true);
-//                 HomeFrame.pack();
-//                 HomeFrame.setLocationRelativeTo(null); 
-                 loginVue.dispose();
+               //  Main2 m=new Main2();
+
+//                  HomeFrame.pack();
+//                  HomeFrame.setLocationRelativeTo(null); 
+//                  HomeFrame.dispose();
             } else {
                 JOptionPane.showMessageDialog(loginVue, "Incorrect email or password", "Error", JOptionPane.ERROR_MESSAGE);
             }
