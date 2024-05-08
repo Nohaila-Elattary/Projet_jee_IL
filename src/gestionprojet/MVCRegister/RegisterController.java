@@ -1,5 +1,6 @@
 package gestionprojet.MVCRegister;
 import gestionprojet.MVCLogin.*;
+/*cette classe est controller*/
 
 
 public class RegisterController {
