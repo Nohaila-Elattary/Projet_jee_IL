@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package gestionprojet.MVCRegister;
-import gestionprojet.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
