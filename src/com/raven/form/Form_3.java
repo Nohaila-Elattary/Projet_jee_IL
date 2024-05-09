@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package com.raven.form;
+import com.raven.main.*;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
@@ -23,6 +25,7 @@ import javax.swing.table.TableCellRenderer;
 
 public class Form_3 extends javax.swing.JPanel {
 Connection con;
+//Main2 m=new Main2();
     /**
     /**
      * Creates new form Form_1
@@ -47,7 +50,7 @@ show_prj();
     }
       public ArrayList<Projet> lstProjets(){
     ArrayList<Projet> lstProjet = new ArrayList<>();
-    String sql = "SELECT * FROM projets where etat!='termine' ";
+    String sql = "SELECT * FROM projets where etat='en cours' ";
     
     try{
         Statement s = con.createStatement();
@@ -72,8 +75,7 @@ show_prj();
     }
     return lstProjet;
 
-}
-    public void show_prj() {
+}public void show_prj() {
     ArrayList<Projet> list = lstProjets();
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     model.setRowCount(0); // Clear table
@@ -85,9 +87,15 @@ show_prj();
             public void actionPerformed(ActionEvent e) {
                 int row = jTable1.getSelectedRow();
                 if (row != -1) {
-                    int projet_id = (int) jTable1.getValueAt(row, 0); // ID du projet sélectionné
-                    Form_1_1 form1_1 = new Form_1_1(projet_id); // Passer l'ID du projet au constructeur de Form_1_1
-                    // Afficher le Form_1_1
+                    int projetId = (int) jTable1.getValueAt(row, 0); // ID du projet sélectionné
+                    Form_1_1 form1_1 = new Form_1_1(projetId); // Créez une instance de Form_1_1 en passant l'ID du projet
+                    // Affichez le Form_1_1
+                    JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(Form_3.this);
+                    frame.getContentPane().removeAll();
+                    frame.getContentPane().add(form1_1);
+                    frame.pack();
+                    frame.setLocationRelativeTo(null);
+                    frame.setVisible(true);
                 }
             }
         });
@@ -105,49 +113,50 @@ show_prj();
     }
 }
 
+
 // jTable1.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
 
     
 
        
-  private void deleteProjet() {
-    int selectedRow = jTable1.getSelectedRow();
-    if (selectedRow != -1) {
-        int projectId = (int) jTable1.getValueAt(selectedRow, 0); // Récupère l'ID du projet
-        try {
-            Statement stmt = con.createStatement();
-            String sql = "DELETE FROM projets WHERE projet_id = " + projectId;
-            stmt.executeUpdate(sql);
-            System.out.println("Projet supprimé avec succès de la base de données !");
-            show_prj(); // Rafraîchit l'affichage du tableau
-        } catch (Exception ex) {
-            System.out.println("Erreur lors de la suppression du projet de la base de données : " + ex.getMessage());
-        }
-    } else {
-        System.out.println("Aucun projet sélectionné.");
-    }
-}   
-    private void btnSupprimerActionPerformed(ActionEvent evt) {
-        deleteProjet();
-    }
+//  private void deleteProjet() {
+//    int selectedRow = jTable1.getSelectedRow();
+//    if (selectedRow != -1) {
+//        int projectId = (int) jTable1.getValueAt(selectedRow, 0); // Récupère l'ID du projet
+//        try {
+//            Statement stmt = con.createStatement();
+//            String sql = "DELETE FROM projets WHERE projet_id = " + projectId;
+//            stmt.executeUpdate(sql);
+//            System.out.println("Projet supprimé avec succès de la base de données !");
+//            show_prj(); // Rafraîchit l'affichage du tableau
+//        } catch (Exception ex) {
+//            System.out.println("Erreur lors de la suppression du projet de la base de données : " + ex.getMessage());
+//        }
+//    } else {
+//        System.out.println("Aucun projet sélectionné.");
+//    }
+//}   
+//    private void btnSupprimerActionPerformed(ActionEvent evt) {
+//        deleteProjet();
+//    }
 
-public class ButtonRenderer extends JButton implements TableCellRenderer {
-    public ButtonRenderer() {
-        setOpaque(true);
-    }
+//public class ButtonRenderer extends JButton implements TableCellRenderer {
+//    public ButtonRenderer() {
+//        setOpaque(true);
+//    }
 
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-        if (isSelected) {
-            setBackground(table.getSelectionBackground());
-            setForeground(table.getSelectionForeground());
-        } else {
-            setBackground(table.getBackground());
-            setForeground(table.getForeground());
-        }
-        setText((value == null) ? "" : value.toString());
-        return this;
-    }
-} 
+//    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+//        if (isSelected) {
+//            setBackground(table.getSelectionBackground());
+//            setForeground(table.getSelectionForeground());
+//        } else {
+//            setBackground(table.getBackground());
+//            setForeground(table.getForeground());
+//        }
+//        setText((value == null) ? "" : value.toString());
+//        return this;
+//    }
+//} 
      
      /**
      * This method is called from within the constructor to initialize the form.
@@ -175,7 +184,7 @@ public class ButtonRenderer extends JButton implements TableCellRenderer {
 
         jButton2.setBackground(new java.awt.Color(119, 181, 254));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/2.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/4.png"))); // NOI18N
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -267,16 +276,26 @@ public class ButtonRenderer extends JButton implements TableCellRenderer {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        jButton2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                deleteProjet();
-            }
-        });
+    int row = jTable1.getSelectedRow();
+    if (row != -1) {
+        int projetId = (int) jTable1.getValueAt(row, 0); // ID du projet sélectionné
+        Form_1_1 form1_1 = new Form_1_1(projetId); // Créez une instance de Form_1_1 en passant l'ID du projet
+        // Ajoutez le Form_1_1 au contenu de la fenêtre principale
+        
+        this.getParent().add(form1_1);
+        form1_1.setVisible(true);
+        // Rafraîchissez la fenêtre pour afficher le nouveau formulaire
+        this.getParent().validate();
+        this.getParent().repaint();
+    
+}
+
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+  
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

@@ -27,8 +27,8 @@ public class Main2 extends javax.swing.JFrame {
     private Form_Home home;
     private Form_1 form1;
     private Form_2 form2;
-    private Form_1_1 form3;
-    private Form_3 form_1_1;
+    private Form_1_1 form1_1 ;
+    private Form_3 form3;
      int projet_id;
 
     public Main2() {
@@ -37,9 +37,8 @@ public class Main2 extends javax.swing.JFrame {
         home = new Form_Home();
         form1 = new Form_1();
         form2 = new Form_2();
-       
-        form3 = new Form_1_1(projet_id);
-        form_1_1 = new Form_3();
+        form1_1 = new Form_1_1(projet_id);
+        form3 = new Form_3();
         menu.initMoving(Main2.this);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
@@ -51,17 +50,17 @@ public class Main2 extends javax.swing.JFrame {
                 } else if (index == 2) {
                     setForm(form2);
                 } else if (index == 3) {
-                    setForm(form3);
+                    setForm(form1_1);
                 }
-                else if (index == 4) {
-                    setForm(form3);
-            }
+//                else if (index == 4) {
+//                    setForm(form1_1);
+//            }
             }});
         //  set when system open start with home form
         setForm(new Form_Home());
     }
 
-    private void setForm(JComponent com) {
+    public void setForm(JComponent com) {
         mainPanel.removeAll();
         mainPanel.add(com);
         mainPanel.repaint();
