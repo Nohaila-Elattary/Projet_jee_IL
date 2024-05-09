@@ -7,7 +7,7 @@ package com.raven.main;
 
 import com.raven.event.EventMenuSelected;
 import com.raven.form.Form_1;
-//import com.raven.form.Form_3;
+import com.raven.form.Form_3;
 import com.raven.form.Form_2;
 import com.raven.form.Form_1_1;
 import com.raven.form.Form_Home;
@@ -28,7 +28,7 @@ public class Main2 extends javax.swing.JFrame {
     private Form_1 form1;
     private Form_2 form2;
     private Form_1_1 form3;
-    //private Form_3 form_1_1;
+    private Form_3 form_1_1;
      int projet_id;
 
     public Main2() {
@@ -39,7 +39,7 @@ public class Main2 extends javax.swing.JFrame {
         form2 = new Form_2();
        
         form3 = new Form_1_1(projet_id);
-        //form_1_1 = new Form_3();
+        form_1_1 = new Form_3();
         menu.initMoving(Main2.this);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
