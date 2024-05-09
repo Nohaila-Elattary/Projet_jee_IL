@@ -2,8 +2,6 @@
 package JAXB;
 
 
-
-import com.raven.form.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.xml.bind.JAXBContext;
@@ -15,7 +13,8 @@ import java.sql.Date;
 public class JaxbMain {
     public static void main(String[] args) throws JAXBException, IOException {
         // Creating a sample Projet object
-        Projet projet = new Projet(1, "Sample Project", new Date(), new Date(), "Team Members", "InProgress", 123);
+        Projet projet;
+        projet = new Projet();
 
         // Marshalling the Projet object to XML
         JAXBContext context = JAXBContext.newInstance(Projet.class);
@@ -27,4 +26,3 @@ public class JaxbMain {
 }
 
 
-}
