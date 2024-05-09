@@ -12,16 +12,16 @@ class Projet {
     private Date dateFin;
     private String MembresEquipe;
     private String etat;
-    private int project_manager_id;
+    private int projet_manager_id;
      
-    public Projet(int projet_id, String project_name,Date dateDebut, Date dateFin, String MembresEquipe, String etat, int project_manager_id ){
+    public Projet(int projet_id, String project_name,Date dateDebut, Date dateFin, String MembresEquipe, String etat, int projet_manager_id ){
         this.projet_id=projet_id;
         this.project_name=project_name;
         this.dateDebut=dateDebut;
         this.dateFin=dateFin;
         this.MembresEquipe=MembresEquipe;
         this.etat=etat;
-        this.project_manager_id=project_manager_id;
+        this.projet_manager_id=projet_manager_id;
     
     
     }
@@ -56,7 +56,7 @@ class Projet {
         return etat;
     }
     public int getProjet_manager_id(){
-        return project_manager_id;
+        return projet_manager_id;
     }
     
 

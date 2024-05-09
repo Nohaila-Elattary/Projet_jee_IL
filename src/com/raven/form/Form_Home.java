@@ -15,17 +15,34 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
+// hi
 public class Form_Home extends javax.swing.JPanel {
  Connection con;
     public Form_Home() {
         initComponents();
-        card1.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Stock Total", "$200000", "Increased by 60%"));
-        card2.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/profit.png")), "Total Profit", "$15000", "Increased by 25%"));
-        card3.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/flag.png")), "Unique Visitors", "$300000", "Increased by 70%"));
+        card1.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/icons8-user-90.png")), "Profile", "", ""));
+        card2.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/icons8-newspaper-90.png")), "Annonces", "", ""));
+        card3.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/icons8-archive-90.png")), "Archive", "", ""));
+//      jTable1.setVerticalScrollBar(new ScrollBar());
+//        jTable1.getVerticalScrollBar().setBackground(Color.WHITE);
+//        jTable1.getViewport().setBackground(Color.WHITE);
         JPanel p = new JPanel();
         p.setBackground(Color.WHITE);
-
+//        jTable1.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
+//        jTable1.addRow(new Object[]{"Mike Bhand", "mikebhand@gmail.com", "Admin", "25 Apr,2018", StatusType.PENDING});
+//        jTable1.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018", StatusType.APPROVED});
+//        jTable1.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018", StatusType.APPROVED});
+//        jTable1.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018", StatusType.REJECT});
+//        jTable1.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018", StatusType.PENDING});
+//        jTable1.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018", StatusType.APPROVED});
+//        jTable1.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018", StatusType.APPROVED});
+//        table.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018", StatusType.REJECT});
+//        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018", StatusType.PENDING});
+//        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018", StatusType.PENDING});
+//        table.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018", StatusType.APPROVED});
+//        table.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018", StatusType.APPROVED});
+//        table.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018", StatusType.REJECT});
+//    
 
 String url="jdbc:MySQL://localhost:3306/gestionprojets";
 String user="root";
@@ -104,10 +121,17 @@ show_prj();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(242, 242, 242));
+
         panel.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
         card1.setColor1(new java.awt.Color(142, 142, 250));
         card1.setColor2(new java.awt.Color(123, 123, 245));
+        card1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                card1MouseClicked(evt);
+            }
+        });
         panel.add(card1);
 
         card2.setColor1(new java.awt.Color(186, 123, 247));
@@ -127,7 +151,7 @@ show_prj();
 
             },
             new String [] {
-                "ID", "Name", "DB", "DF", "MembresEquipe", "Etat", "Project_manager_id"
+                "ID", "Name", "DB", "DF", "MembresEquipe", "Etat", "Projet_manager_id"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -186,6 +210,14 @@ show_prj();
                 .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void card1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_card1MouseClicked
+        form_4 SignUpFrame = new form_4();
+        SignUpFrame.setVisible(true);
+        SignUpFrame.pack();
+        SignUpFrame.setLocationRelativeTo(null); 
+        
+    }//GEN-LAST:event_card1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
