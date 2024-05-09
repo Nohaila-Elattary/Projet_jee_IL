@@ -7,9 +7,11 @@ package com.raven.main;
 
 import com.raven.event.EventMenuSelected;
 import com.raven.form.Form_1;
+//import com.raven.form.Form_3;
 import com.raven.form.Form_2;
-import com.raven.form.Form_3;
+import com.raven.form.Form_1_1;
 import com.raven.form.Form_Home;
+import com.raven.form.form_4;
 import java.awt.Color;
 import javax.swing.JComponent;
 
@@ -17,16 +19,17 @@ import javax.swing.JComponent;
  *
  * @author RAVEN
  */
-import com.raven.form.Form_Home;
 public class Main2 extends javax.swing.JFrame {
 
     /**
-     * Creates new form Main
+     * Creates new form Main2
      */
     private Form_Home home;
     private Form_1 form1;
     private Form_2 form2;
-    private Form_3 form3;
+    private Form_1_1 form3;
+    //private Form_3 form_1_1;
+     int projet_id;
 
     public Main2() {
         initComponents();
@@ -34,7 +37,9 @@ public class Main2 extends javax.swing.JFrame {
         home = new Form_Home();
         form1 = new Form_1();
         form2 = new Form_2();
-        form3 = new Form_3();
+       
+        form3 = new Form_1_1(projet_id);
+        //form_1_1 = new Form_3();
         menu.initMoving(Main2.this);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
@@ -48,8 +53,10 @@ public class Main2 extends javax.swing.JFrame {
                 } else if (index == 3) {
                     setForm(form3);
                 }
+                else if (index == 4) {
+                    setForm(form3);
             }
-        });
+            }});
         //  set when system open start with home form
         setForm(new Form_Home());
     }
@@ -77,6 +84,8 @@ public class Main2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+
+        panelBorder1.setBackground(new java.awt.Color(242, 242, 242));
 
         header2.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
@@ -124,7 +133,7 @@ public class Main2 extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
