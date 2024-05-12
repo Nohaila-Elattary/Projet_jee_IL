@@ -26,7 +26,7 @@ public class RegisterVue extends javax.swing.JFrame {
     public RegisterVue(RegisterController controller) {
         this.controller = controller;
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setExtendedState(JFrame.NORMAL);
     }
 
     public void setController(RegisterController controller) {
@@ -85,15 +85,20 @@ public class RegisterVue extends javax.swing.JFrame {
         Email = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(0, 0));
+        setLocationByPlatform(true);
+        setMaximumSize(new java.awt.Dimension(1000, 500));
+        setMinimumSize(new java.awt.Dimension(1000, 500));
         setUndecorated(true);
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 500));
         jPanel1.setLayout(null);
 
         right.setBackground(new java.awt.Color(255, 255, 255));
-        right.setPreferredSize(new java.awt.Dimension(400, 500));
+        right.setMinimumSize(new java.awt.Dimension(500, 500));
+        right.setPreferredSize(new java.awt.Dimension(500, 500));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionprojet/logob.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/logob.png"))); // NOI18N
         jLabel10.setText("jLabel6");
 
         javax.swing.GroupLayout rightLayout = new javax.swing.GroupLayout(right);

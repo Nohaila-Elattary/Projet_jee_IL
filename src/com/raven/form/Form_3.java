@@ -25,6 +25,7 @@ import javax.swing.table.TableCellRenderer;
 
 public class Form_3 extends javax.swing.JPanel {
 Connection con;
+public boolean modifier=false;
 //Main2 m=new Main2();
     /**
     /**
@@ -88,7 +89,7 @@ show_prj();
                 int row = jTable1.getSelectedRow();
                 if (row != -1) {
                     int projetId = (int) jTable1.getValueAt(row, 0); // ID du projet sélectionné
-                    Form_1_1 form1_1 = new Form_1_1(projetId); // Créez une instance de Form_1_1 en passant l'ID du projet
+                    Form_1_1 form1_1 = new Form_1_1(); // Créez une instance de Form_1_1 en passant l'ID du projet
                     // Affichez le Form_1_1
                     JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(Form_3.this);
                     frame.getContentPane().removeAll();
@@ -279,7 +280,7 @@ show_prj();
     int row = jTable1.getSelectedRow();
     if (row != -1) {
         int projetId = (int) jTable1.getValueAt(row, 0); // ID du projet sélectionné
-        Form_1_1 form1_1 = new Form_1_1(projetId); // Créez une instance de Form_1_1 en passant l'ID du projet
+        Form_1_1 form1_1 = new Form_1_1(); // Créez une instance de Form_1_1 en passant l'ID du projet
         // Ajoutez le Form_1_1 au contenu de la fenêtre principale
         
         this.getParent().add(form1_1);
@@ -287,13 +288,14 @@ show_prj();
         // Rafraîchissez la fenêtre pour afficher le nouveau formulaire
         this.getParent().validate();
         this.getParent().repaint();
-    
+            modifier  =true;
 }
 
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-  
+                modifier  =true;
+            
 
 
     }//GEN-LAST:event_jButton2ActionPerformed

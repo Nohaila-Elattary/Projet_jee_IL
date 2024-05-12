@@ -37,7 +37,7 @@ public class Main2 extends javax.swing.JFrame {
         home = new Form_Home();
         form1 = new Form_1();
         form2 = new Form_2();
-        form1_1 = new Form_1_1(projet_id);
+        form1_1 = new Form_1_1();
         form3 = new Form_3();
         menu.initMoving(Main2.this);
         menu.addEventMenuSelected(new EventMenuSelected() {

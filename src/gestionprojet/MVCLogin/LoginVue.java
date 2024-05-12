@@ -33,7 +33,7 @@ public class LoginVue extends javax.swing.JFrame {
       public LoginVue(LoginController controller) {
         this.controller = controller;
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setExtendedState(JFrame.NORMAL);
     }
 
     // Méthode pour mettre à jour la référence du contrôleur dans la vue
@@ -81,14 +81,17 @@ public class LoginVue extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 500));
+        setLocation(new java.awt.Point(0, 0));
+        setLocationByPlatform(true);
+        setMaximumSize(new java.awt.Dimension(1000, 500));
+        setMinimumSize(new java.awt.Dimension(1000, 500));
         setUndecorated(true);
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 500));
         jPanel1.setLayout(null);
 
         left.setBackground(new java.awt.Color(51, 102, 255));
-        left.setMinimumSize(new java.awt.Dimension(400, 500));
+        left.setMinimumSize(new java.awt.Dimension(500, 500));
         left.setPreferredSize(new java.awt.Dimension(500, 500));
         left.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -113,28 +116,28 @@ public class LoginVue extends javax.swing.JFrame {
                 jLabel2MouseReleased(evt);
             }
         });
-        left.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 15, -1));
+        left.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 15, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nom d'utilisateur");
-        left.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 123, 130, 20));
+        left.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 130, 20));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Mot de passe");
-        left.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        left.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
         Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmailActionPerformed(evt);
             }
         });
-        left.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 380, 34));
-        left.add(MotDePasse, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 231, 380, 34));
+        left.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 380, 34));
+        left.add(MotDePasse, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 380, 34));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8-utilisateur-24.png"))); // NOI18N
-        left.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
+        left.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 60, 70));
 
         hide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8-cacher-24.png"))); // NOI18N
         hide.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -142,7 +145,7 @@ public class LoginVue extends javax.swing.JFrame {
                 hideMouseClicked(evt);
             }
         });
-        left.add(hide, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
+        left.add(hide, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton1.setText("se connecter");
@@ -169,7 +172,7 @@ public class LoginVue extends javax.swing.JFrame {
                 jLabel9MouseClicked(evt);
             }
         });
-        left.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 271, -1, -1));
+        left.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
 
         SignUp.setBackground(new java.awt.Color(51, 102, 255));
         SignUp.setText("S'inscrire");
@@ -178,7 +181,7 @@ public class LoginVue extends javax.swing.JFrame {
                 SignUpActionPerformed(evt);
             }
         });
-        left.add(SignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
+        left.add(SignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, -1, -1));
         SignUp.getAccessibleContext().setAccessibleName("s_inscrire");
         SignUp.getAccessibleContext().setAccessibleDescription("s_inscrire");
 
@@ -188,31 +191,31 @@ public class LoginVue extends javax.swing.JFrame {
                 showMouseClicked(evt);
             }
         });
-        left.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
+        left.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, -1, -1));
 
         jPanel1.add(left);
-        left.setBounds(530, 0, 480, 500);
+        left.setBounds(500, 0, 500, 500);
 
         right.setBackground(new java.awt.Color(255, 255, 255));
-        right.setPreferredSize(new java.awt.Dimension(400, 500));
+        right.setMinimumSize(new java.awt.Dimension(500, 500));
+        right.setPreferredSize(new java.awt.Dimension(500, 500));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/logob.png"))); // NOI18N
-        jLabel6.setText("jLabel6");
 
         javax.swing.GroupLayout rightLayout = new javax.swing.GroupLayout(right);
         right.setLayout(rightLayout);
         rightLayout.setHorizontalGroup(
             rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightLayout.createSequentialGroup()
-                .addGap(0, 73, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(rightLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         rightLayout.setVerticalGroup(
             rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rightLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightLayout.createSequentialGroup()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel1.add(right);
@@ -222,7 +225,7 @@ public class LoginVue extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
